@@ -7,6 +7,7 @@
     <meta name="author" content="modinatheme">
     <title><?php bloginfo( 'name' ); ?></title>
     <?php wp_head() ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="body-wrapper" <?php body_class(); ?>>
@@ -57,12 +58,12 @@
             <div class="d-inline-block d-lg-none">
                 <div class="mobile-nav-wrap">
                     <div id="hamburger">
-                        <i class="fal fa-bars"></i>
+                        <i class="fas fa-bars"></i>
                     </div>
                     <!-- mobile menu - responsive menu  -->
                     <div class="mobile-nav">
                         <button type="button" class="close-nav">
-                            <i class="fal fa-times-circle"></i>
+                            <i class="fas fa-times-circle"></i>
                         </button>
                         <nav class="sidebar-nav">
                             <ul class="metismenu" id="mobile-menu">
@@ -87,7 +88,7 @@
                     <div class="search-box">
                         <form action="#">
                             <input type="text" placeholder="Search">
-                            <button type="submit"><i class="fal fa-search"></i></button>
+                            <button type="submit"><i class="fas fa-search"></i></button>
                         </form>
                     </div>
                 </div>

@@ -15,7 +15,7 @@ Author: Puja Sinha
             autoplayTimeout: 8000,
             autoplay:true,
             nav: true,         
-            navText: ['<i class="fal fa-long-arrow-left"></i>PREV', 'Next<i class="fal fa-long-arrow-right"></i>'],
+            navText: ['<i class="fas fa-long-arrow-left"></i>PREV', 'Next<i class="fas fa-long-arrow-right"></i>'],
         });
 
         $(".hero-slider-2").owlCarousel({        
@@ -26,7 +26,7 @@ Author: Puja Sinha
             autoplay:true,
             nav: true,
             animateOut: 'fadeOut',         
-            navText: ['<i class="fal fa-long-arrow-left"></i>', '<i class="fal fa-long-arrow-right"></i>'],
+            navText: ['<i class="fas fa-long-arrow-left"></i>', '<i class="fas fa-long-arrow-right"></i>'],
         });
 
         const $owlCarousel = $(".agency-slider-active").owlCarousel({        
@@ -59,7 +59,7 @@ Author: Puja Sinha
             autoplayTimeout: 8000,
             autoplay:true,
             nav: true,     
-            navText: ['<i class="fal fa-long-arrow-left"></i>', '<i class="fal fa-long-arrow-right"></i>'],
+            navText: ['<i class="fas fa-long-arrow-left"></i>', '<i class="fas fa-long-arrow-right"></i>'],
         });
         
         $(".brand-carousel-active").owlCarousel({ 
@@ -244,7 +244,7 @@ Author: Puja Sinha
             margin: 30,
             loop: true,
             nav: true,           
-            navText: ['<i class="fal fa-long-arrow-left"></i>', '<i class="fal fa-long-arrow-right"></i>'],
+            navText: ['<i class="fas fa-long-arrow-left"></i>', '<i class="fas fa-long-arrow-right"></i>'],
             autoplayTimeout: 6000,
             autoplay:true,                                                                          
             responsive : {
@@ -314,7 +314,7 @@ Author: Puja Sinha
             autoplayTimeout: 8000,
             autoplay:true,
             nav: true,           
-            navText: ['<i class="fal fa-long-arrow-down"></i>', '<i class="fal fa-long-arrow-up"></i>'],
+            navText: ['<i class="fas fa-long-arrow-down"></i>', '<i class="fas fa-long-arrow-up"></i>'],
         });
 
         $(".service-gallery").owlCarousel({        
@@ -323,7 +323,7 @@ Author: Puja Sinha
             autoplayTimeout: 8000,
             autoplay:true,
             nav: true,          
-            navText: ['<i class="fal fa-long-arrow-left"></i>', '<i class="fal fa-long-arrow-right"></i>'],
+            navText: ['<i class="fas fa-long-arrow-left"></i>', '<i class="fas fa-long-arrow-right"></i>'],
         });
 
 
@@ -362,7 +362,7 @@ Author: Puja Sinha
             animation: 'slide', // Fade, slide, none
             animationInSpeed: 300, // Animation in speed (ms)
             animationOutSpeed: 300, // Animation out speed (ms)
-            scrollText: '<i class="fal fa-angle-up"></i>', // Text for element
+            scrollText: '<i class="fas fa-angle-up"></i>', // Text for element
             activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
         });
 

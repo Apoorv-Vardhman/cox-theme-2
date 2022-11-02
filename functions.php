@@ -15,7 +15,6 @@ function cox_theme_assets() {
     wp_enqueue_style( 'metismenu', get_template_directory_uri() . '/assets/css/metismenu.css', array(), '2.7.2' );
     wp_enqueue_style( 'icons', get_template_directory_uri() . '/assets/css/icons.css', array(), '5.8.1' );
     wp_enqueue_style( 'main_style', get_template_directory_uri() . '/assets/css/style.css', array(), '1.0.0' );
-
     /*
      * https://developer.wordpress.org/reference/functions/wp_enqueue_script/
      * wp_enqueue_script( string $handle, string $src = '', string[] $deps = array(), string|bool|null $ver = false, bool $in_footer = false )
@@ -46,6 +45,7 @@ register_nav_menus(array(
     'primary-menu'=>'Top Menu',
     'mobile-menu'=>'Mobile Menu',
     'quick-links'=>'Footer Quick Links',
+    'resources'=>'Footer Resources',
     'copyright-menu'=>'Copyright footer menu'
 ));
 

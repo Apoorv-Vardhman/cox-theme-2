@@ -11,7 +11,7 @@
                         <div class="contact-us">
                             <div class="single-contact-info">
                                 <div class="icon">
-                                    <i class="fal fa-phone"></i>
+                                    <i class="fas fa-phone"></i>
                                 </div>
                                 <div class="contact-info">
                                     <p>+673 853 605 985</p>
@@ -19,7 +19,7 @@
                             </div>
                             <div class="single-contact-info">
                                 <div class="icon">
-                                    <i class="fal fa-envelope"></i>
+                                    <i class="fas fa-envelope"></i>
                                 </div>
                                 <div class="contact-info">
                                     <p>info@example.com</p>
@@ -27,7 +27,7 @@
                             </div>
                             <div class="single-contact-info">
                                 <div class="icon">
-                                    <i class="fal fa-map-marker-alt"></i>
+                                    <i class="fas fa-map-marker-alt"></i>
                                 </div>
                                 <div class="contact-info">
                                     <p>cox address</p>
@@ -57,13 +57,19 @@
                 <div class="col-sm-6 col-xl-4 offset-xl-1 col-12">
                     <div class="single-footer-wid newsletter_widget">
                         <div class="wid-title">
-                            <h3>Our Footprint</h3>
+                            <h3>Resources</h3>
                         </div>
-                        <div class="map-location">
-                            <img src="assets/img/footer-map.png" alt="">
-                        </div>
+                        <?php
+                            /*
+                             * https://developer.wordpress.org/reference/functions/wp_nav_menu/
+                             * */
+                            wp_nav_menu(array(
+                                'theme_location'=>'resources',
+                                'menu_class'=>''
+                            ))
+                        ?>
                     </div>
-                </div> <!-- /.col-lg-3 - single-footer-wid -->
+                </div>
             </div>
         </div>
     </div>
