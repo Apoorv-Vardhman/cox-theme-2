@@ -1,0 +1,15 @@
+{
+    "name": "apoor/cox",
+    "description": "Cox Wordpress Theme",
+    "autoload": {
+        "psr-4": {
+            "Apoor\\Cox\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Puja Sinha"
+        }
+    ],
+    "require": {}
+}
