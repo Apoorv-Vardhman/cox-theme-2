@@ -86,10 +86,9 @@
                 <div class="search-icon">
                     <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
                     <div class="search-box">
-                        <form action="#">
-                            <input type="text" placeholder="Search">
-                            <button type="submit"><i class="fas fa-search"></i></button>
-                        </form>
+                        <?php
+                            get_search_form( );
+                        ?>
                     </div>
                 </div>
             </div>

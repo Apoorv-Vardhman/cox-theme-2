@@ -51,3 +51,15 @@ register_nav_menus(array(
 
 add_theme_support('post-thumbnails');
 add_theme_support('custom-header');
+
+function custom_search_form( $form ) {
+    $form = '<form role="search" method="get" id="searchform" class="searchform" action="' . home_url( '/' ) . '" >
+        <div class="custom-form"> 
+        <input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="Search your keyword..." />
+        <button type="submit"><i class="fas fa-search"></i></button> 
+      </div>
+      </form>';
+
+    return $form;
+}
+add_filter( 'get_search_form', 'custom_search_form', 40 );
