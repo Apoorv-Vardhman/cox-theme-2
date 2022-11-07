@@ -42,14 +42,16 @@ add_action( 'wp_enqueue_scripts', 'cox_theme_assets' );
 
 //navigation menu
 register_nav_menus(array(
-    'primary-menu'=>'Top Menu',
+    'primary-menu'=>'Desktop Menu',
     'mobile-menu'=>'Mobile Menu',
+    'top-menu'=>'Top Menu',
     'quick-links'=>'Footer Quick Links',
     'resources'=>'Footer Resources',
     'copyright-menu'=>'Copyright footer menu'
 ));
 
 add_theme_support('post-thumbnails');
+add_post_type_support('page','excerpt');
 add_theme_support('custom-header');
 
 function custom_search_form( $form ) {
@@ -63,3 +65,99 @@ function custom_search_form( $form ) {
     return $form;
 }
 add_filter( 'get_search_form', 'custom_search_form', 40 );
+
+function my_register_sidebars()
+{
+    register_sidebar(
+        array(
+            'id'            => 'primary',
+            'name'          => __( 'Primary Sidebar' ),
+            'description'   => __( 'A short description of the sidebar.' ),
+            /*'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>',*/
+        )
+    );
+}
+add_action( 'widgets_init', 'my_register_sidebars' );
+
+
+/*add_filter('wp_nav_menu_items', 'my_wp_nav_menu_items', 10, 2);
+
+function my_wp_nav_menu_items( $items, $args ) {
+
+    $menu = wp_get_nav_menu_object($args->menu);
+    $data = array();
+    if( $args->theme_location == 'top-menu' ) {
+        $facebook = get_field('facebook',$menu);
+        $data['facebook'] =$facebook;
+        $twitter = get_field('twitter',$menu);
+        $data['twitter'] =$twitter;
+        $instagram = get_field('instagram',$menu);
+        $data['instagram'] =$instagram;
+        $linkedin = get_field('linkedin',$menu);
+        $data['linkedin'] =$linkedin;
+        $is_top_menu = get_field('top_menu',$menu);
+        $data['top_menu'] =$is_top_menu;
+    }
+    return $data;
+}*/
+
+// Register Custom Post Type carousel
+function create_carousel_cpt() {
+
+    $labels = array(
+        'name' => _x( 'carousels', 'Post Type General Name', 'textdomain' ),
+        'singular_name' => _x( 'carousel', 'Post Type Singular Name', 'textdomain' ),
+        'menu_name' => _x( 'carousels', 'Admin Menu text', 'textdomain' ),
+        'name_admin_bar' => _x( 'carousel', 'Add New on Toolbar', 'textdomain' ),
+        'archives' => __( 'carousel Archives', 'textdomain' ),
+        'attributes' => __( 'carousel Attributes', 'textdomain' ),
+        'parent_item_colon' => __( 'Parent carousel:', 'textdomain' ),
+        'all_items' => __( 'All carousels', 'textdomain' ),
+        'add_new_item' => __( 'Add New carousel', 'textdomain' ),
+        'add_new' => __( 'Add New', 'textdomain' ),
+        'new_item' => __( 'New carousel', 'textdomain' ),
+        'edit_item' => __( 'Edit carousel', 'textdomain' ),
+        'update_item' => __( 'Update carousel', 'textdomain' ),
+        'view_item' => __( 'View carousel', 'textdomain' ),
+        'view_items' => __( 'View carousels', 'textdomain' ),
+        'search_items' => __( 'Search carousel', 'textdomain' ),
+        'not_found' => __( 'Not found', 'textdomain' ),
+        'not_found_in_trash' => __( 'Not found in Trash', 'textdomain' ),
+        'featured_image' => __( 'Featured Image', 'textdomain' ),
+        'set_featured_image' => __( 'Set featured image', 'textdomain' ),
+        'remove_featured_image' => __( 'Remove featured image', 'textdomain' ),
+        'use_featured_image' => __( 'Use as featured image', 'textdomain' ),
+        'insert_into_item' => __( 'Insert into carousel', 'textdomain' ),
+        'uploaded_to_this_item' => __( 'Uploaded to this carousel', 'textdomain' ),
+        'items_list' => __( 'carousels list', 'textdomain' ),
+        'items_list_navigation' => __( 'carousels list navigation', 'textdomain' ),
+        'filter_items_list' => __( 'Filter carousels list', 'textdomain' ),
+    );
+    $args = array(
+        'label' => __( 'carousel', 'textdomain' ),
+        'description' => __( 'cox-carousels with owl crousel', 'textdomain' ),
+        'labels' => $labels,
+        'menu_icon' => 'dashicons-slides',
+        'supports' => array('title', 'excerpt', 'thumbnail', 'custom-fields'),
+        'taxonomies' => array(),
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 5,
+        'show_in_admin_bar' => true,
+        'show_in_nav_menus' => true,
+        'can_export' => true,
+        'has_archive' => true,
+        'hierarchical' => false,
+        'exclude_from_search' => false,
+        'show_in_rest' => true,
+        'publicly_queryable' => true,
+        'capability_type' => 'post',
+    );
+    register_post_type( 'carousel', $args );
+
+}
+add_action( 'init', 'create_carousel_cpt', 0 );

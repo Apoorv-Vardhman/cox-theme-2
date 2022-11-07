@@ -1,4 +1,11 @@
-
+<?php
+    $menu_name = 'top-menu';
+    $locations = get_nav_menu_locations();
+    $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+    $email= get_field('email',$menu);
+    $address= get_field('address',$menu);
+    $phone= get_field('phone',$menu);
+?>
 <footer class="footer-2 footer-wrap">
     <div class="footer-widgets-wrapper text-white">
         <div class="container">
@@ -14,7 +21,7 @@
                                     <i class="fas fa-phone"></i>
                                 </div>
                                 <div class="contact-info">
-                                    <p>+673 853 605 985</p>
+                                    <p><a href="tel:<?php echo $phone ?>"><?php echo $phone ?></a> </p>
                                 </div>
                             </div>
                             <div class="single-contact-info">
@@ -22,7 +29,7 @@
                                     <i class="fas fa-envelope"></i>
                                 </div>
                                 <div class="contact-info">
-                                    <p>info@example.com</p>
+                                    <p><a href="mailto:<?php echo $email ?>" target="_blank"><?php echo $email ?></a> </p>
                                 </div>
                             </div>
                             <div class="single-contact-info">
@@ -30,7 +37,7 @@
                                     <i class="fas fa-map-marker-alt"></i>
                                 </div>
                                 <div class="contact-info">
-                                    <p>cox address</p>
+                                    <p><?php echo $address ?></p>
                                 </div>
                             </div>
                         </div>
@@ -79,7 +86,9 @@
             <div class="row align-items-center">
                 <div class="col-md-6 col-12 text-center text-md-start">
                     <div class="copyright-info">
-                        <p>&copy; 2022 Copyright By <a href="<?php echo bloginfo('url') ?>">CoxAlert</a>. All Rights Reserved</p>
+                        <p>&copy; 2022 Copyright By <a href="<?php echo bloginfo('url') ?>"><?php
+                                bloginfo( 'name' );
+                                ?></a>. All Rights Reserved</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-12">

@@ -27,21 +27,18 @@
                                 <?php echo the_content(); ?>
                             </div>
                         </div>
+                        <div class="comments-section-wrap pt-40">
+                            <?php
+                                //comment_form();
+                                comments_template();
+                            ?>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-lg-4">
-                    <div class="main-sidebar">
-                        <div class="single-sidebar-widget">
-                            <div class="wid-title">
-                                <h3>Search</h3>
-                            </div>
-                            <div class="search_widget">
-                                <?php
-                                    get_search_form( );
-                                ?>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                        get_sidebar();
+                    ?>
                 </div>
             </div>
 

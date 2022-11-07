@@ -1,34 +1,42 @@
 <?php
     get_header();
 ?>
+<?php
+    $args = array(
+            'post_type'=>'carousel',
+            'order'=>'ASC'
+    );
+    $sliders = new Wp_Query($args);
+?>
 <section class="hero-wrapper hero-2">
     <div class="hero-slider-2 owl-carousel owl-theme">
-        <div class="single-slide bg-cover" style="background-image: url('<?php echo get_template_directory_uri() ?>/assets/img/banner/banner-1.jpeg')">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 pe-lg-5 col-xxl-7 col-lg-9">
-                        <div class="hero-contents pe-lg-3">
-                            <h1 class="wow fadeInLeft animated" data-wow-duration="1.3s">Flood Safety</h1>
-                            <p class="pe-lg-5 wow fadeInLeft animated" data-wow-duration="1.3s" data-wow-delay=".4s">Learn how to keep your family safe during a flood, and how to clean up a flooded home.</p>
-                            <a href="https://www.redcross.org/get-help/how-to-prepare-for-emergencies/types-of-emergencies/flood.html" class="theme-btn me-sm-4 wow fadeInLeft" data-wow-duration="1.2s" data-wow-delay=".8s">Learn More</a>
+        <?php
+            if($sliders->have_posts()):
+                while ( $sliders->have_posts() ) : $sliders->the_post();
+            $heading = get_field('heading',get_the_ID());
+            $content = get_field('content',get_the_ID());
+            $button_link = get_field('button_link',get_the_ID());
+            $button_text = get_field('button_text',get_the_ID());
+        ?>
+                    <div class="single-slide bg-cover" style="background-image: url(<?php echo get_the_post_thumbnail_url() ?>)">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 pe-lg-5 col-xxl-7 col-lg-9">
+                                    <div class="hero-contents pe-lg-3">
+                                        <h1 class="wow fadeInLeft animated" data-wow-duration="1.3s"><?php echo $heading; ?></h1>
+                                        <p class="pe-lg-5 wow fadeInLeft animated" data-wow-duration="1.3s" data-wow-delay=".4s"><?php echo $content; ?></p>
+                                        <a href="<?php echo $button_link ?>" class="theme-btn me-sm-4 wow fadeInLeft" data-wow-duration="1.2s" data-wow-delay=".8s"><?php echo $button_text ?></a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="single-slide bg-cover" style="background-image: url('<?php echo get_template_directory_uri() ?>/assets/img/banner/banner-3.jpg')">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 pe-lg-5 col-xxl-7 col-lg-9">
-                        <div class="hero-contents pe-lg-3">
-                            <h1>Strategies for a Healthy Fall</h1>
-                            <p class="pe-lg-5">As the days get shorter and cooler and the seasons change, use these.strategies to help prevent chronic diseases and maintain a healthy lifestyle. </p>
-                            <a href="https://www.cdc.gov/chronicdisease/resources/infographic/healthy-fall.htm" class="theme-btn me-sm-4">contact us</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php
+            endwhile;
+            endif;
+        ?>
+
+
     </div>
     <div class="container">
         <div class="row">
@@ -64,7 +72,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-xl-6 col-12 pe-xl-0">
-                <div class="about-cover-bg bg-cover me-xl-5" style="background-image: url('assets/img/home2/about-cover.jpg')">
+                <div class="about-cover-bg bg-cover me-xl-5" >
                     <iframe title="Disasters Can Happen To Anyone" width="100%" height="608" src="https://www.youtube.com/embed/u63OygiiF2o?feature=oembed"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
@@ -141,6 +149,9 @@
                                 </div>
                             </div>
                             <h3><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h3>
+                            <p>
+                                <?php the_excerpt() ?>
+                            </p>
                             <a href="<?php the_permalink();?>" class="read-more-link">read more</a>
                         </div>
                     </div>
