@@ -52,9 +52,15 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <?php
-                            }
-                        }else{
+                            }?>
+                            <div class="wordpress-pagination">
+                                <?php
+                                the_posts_pagination();
+                                ?>
+                            </div>
+                       <?php }else{
                             ?>
                             <h2 style='font-weight:bold;color:#000'>Nothing Found</h2>
                             <div class="alert alert-info">

@@ -12402,3 +12402,49 @@ header .header-top-bar .top-social-icons a:hover {
 .current-menu-item a{
   color: #FF5E14;
 }
+.wordpress-pagination .pagination .nav-links{
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  margin-top: 5px;
+}
+.wordpress-pagination .pagination .nav-links>a{
+  padding: 0.5rem 0.75rem;
+  line-height: 1.25;
+  color: #007bff;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  margin-left: -2px;
+}
+
+.wordpress-pagination .pagination .nav-links:first-child a,span {
+  margin-left: 0;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.wordpress-pagination .pagination .nav-links:last-child a,span{
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+
+.wordpress-pagination .pagination .nav-links>a:hover{
+  color: #0056b3;
+  text-decoration: none;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+}
+.wordpress-pagination .pagination .nav-links>span{
+  z-index: 1;
+  padding: 0.5rem 0.75rem;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+.wordpress-pagination .pagination .nav-links>span.dots{
+  background-color: #fff;
+  color: #0b0b0b;
+}

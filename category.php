@@ -89,6 +89,14 @@ get_header();
                         </div>
                     <?php endwhile; endif; ?>
 
+                    <div class="wordpress-pagination">
+                        <?php
+                            the_posts_pagination();
+                        ?>
+                    </div>
+
+
+
                 </div>
             </div>
         </section>
