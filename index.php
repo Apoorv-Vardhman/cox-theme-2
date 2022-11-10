@@ -38,66 +38,84 @@
 
 
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-4 col-md-6">
-                <div class="single-services-box sb1">
-                    <div class="content">
-                        <h3>Be Safe</h3>
-                        <p>How to be safe at School, Work, or home. Click to learn more.</p>
+    <?php
+        $args=array('post_type' => 'home_card');
+        $query= new WP_Query($args);
+    if($query->have_posts()):
+    ?>
+        <div class="container">
+            <div class="row">
+                <?php
+                    while ($query->have_posts()):
+                        $query->the_post();
+                    // Retrieves the ID of the current item in the WordPress Loop.
+                        $heading = get_field('heading',get_the_ID());
+                        $content = get_field('content',get_the_ID());
+                        $image = get_the_post_thumbnail_url();
+                ?>
+                    <div class="col-xl-4 col-md-6 col-12">
+                        <div class="single-services-box sb1">
+                            <?php
+                            if($image):
+                            ?>
+                            <div class="icon">
+                                <img src="<?php echo $image; ?>" alt="">
+                            </div>
+                            <?php endif; ?>
+                            <div class="content">
+                                <h3><?php echo $heading; ?></h3>
+                                <p><?php echo $content; ?></p>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                <?php endwhile;  ?>
             </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="single-services-box sb2">
-                    <div class="content">
-                        <h3>Plan Ahead</h3>
-                        <p>Your family may not be together when disaster strikes. Click to learn more</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="single-services-box sb3">
-                    <div class="content">
-                        <h3>Be Ready</h3>
-                        <p>Do you have a disaster kit? First Aid or Go bag? Click to learn more</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<section class="about-section section-padding">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-xl-6 col-12 pe-xl-0">
-                <div class="about-cover-bg bg-cover me-xl-5" >
-                    <iframe title="Disasters Can Happen To Anyone" width="100%" height="608" src="https://www.youtube.com/embed/u63OygiiF2o?feature=oembed"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div class="col-xl-6 mt-5 mt-lg-0 col-12">
-                <div class="block-contents">
-                    <div class="section-title">
-                        <span>About Us</span>
-                        <h2>We Always Think On Your Dream</h2>
-                    </div>
-                    <blockquote>This site was created by Cox to provide our employees, business partners, and families with an online resource for getting vital information during a crisis. </blockquote>
-                </div>
-
-                <p>This site was created by Cox to provide our employees, business partners, and families with an online resource for getting vital information during a crisis. Much of the current content on CoxAlert.com focuses on what to do in preparation for and during all hazards.</p>
-                <p><strong> In Case of an Emergency, Use This Site to Stay Informed</strong></p>
-                <p>In the event of a crisis or a disaster affecting a Cox company or location, visit CoxAlert.com to learn what steps you should take, both for work and personal interests. During an emergency, we will regularly update content so that you have the most current news and complete instructions on what actions you should take.</p>
-                <p><strong>Before an Emergency, Use This Site to Get Prepared</strong></p>
-                <p>At Cox, personal security is a shared responsibility, so be proactive. Take time to review the information within this site. We’ve included important information that can teach you how to minimize risks and protect yourself, your family, and your colleagues during an emergency. Remember, creating a plan is your first step to becoming prepared. This site can help.<strong></strong></p>
-                <p>Cox Business Continuity Plan – Management Resource Links</p>
-                <p>Access to business continuity websites is intended only for authorized team members. Please contact <a href="mailto:Enterprise.Security@coxinc.com">Enterprise.Security@coxinc.com</a> or <a href="mailto:CCIBusinessContinuity@cox.com">CCIBusinessContinuity@cox.com</a> with access requests or account questions<strong>. </strong>Thank you.</p>
-                <p>&nbsp;</p>
-            </div>
         </div>
-    </div>
-    <h2 class="section-rotate-title d-none d-xxl-block">ABOUT</h2>
+    <?php
+        endif;
+    ?>
 </section>
+<?php
+    $args=array('post_type' => 'home_about','posts_per_page' => 1);
+    $query= new WP_Query($args);
+    if($query->have_posts()):
+?>
+        <section class="about-section section-padding">
+            <div class="container">
+                <?php
+                    while ($query->have_posts()):
+                        $query->the_post();
+                        $title = get_field('title',get_the_ID());
+                        $short_title = get_field('short_title',get_the_ID());
+                        $blockquote = get_field('blockquote',get_the_ID());
+                        $content = get_field('content',get_the_ID());
+                        $youtube = get_field('youtube',get_the_ID());
+                ?>
+                <div class="row align-items-center">
+                    <div class="col-xl-6 col-12 pe-xl-0">
+                        <div class="about-cover-bg bg-cover me-xl-5" >
+                            <iframe title="Disasters Can Happen To Anyone" width="100%" height="608" src="<?php echo $youtube ?>"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 mt-5 mt-lg-0 col-12">
+                        <div class="block-contents">
+                            <div class="section-title">
+                                <span><?php echo $title; ?></span>
+                                <h2><?php echo $short_title ?></h2>
+                            </div>
+                            <blockquote><?php echo $blockquote; ?></blockquote>
+                        </div>
+                        <?php echo $content; ?>
+                    </div>
+                </div>
+                <?php
+                    endwhile;
+                 ?>
+            </div>
+        </section>
+<?php endif; ?>
+
 <?php query_posts( array(
     'posts_per_page' => 3,
 )); ?>
